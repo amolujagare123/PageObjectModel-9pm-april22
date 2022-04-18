@@ -25,5 +25,6 @@ public class LoginTest {
         login.setTxtUser(getUsername());
         login.setTxtPassword(getPassword());
         login.clickBtnLogin();
+
     }
 }
