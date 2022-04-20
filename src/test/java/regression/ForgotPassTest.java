@@ -6,20 +6,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.ForgotPass;
 import pages.Login;
+import util.OpenUrl;
 
 import java.io.IOException;
 
 import static utlity.ConfigReader.getUrl;
 
-public class ForgotPassTest {
+public class ForgotPassTest extends OpenUrl {
 
     @Test
     public void forgotPassTest() throws IOException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
 
-        driver.get(getUrl());
 
         Login login = new Login(driver);
         login.clickBtnForgotPass();

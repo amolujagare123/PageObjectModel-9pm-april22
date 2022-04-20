@@ -9,28 +9,15 @@ import org.testng.annotations.Test;
 import pages.AddClient;
 import pages.Login;
 import pages.Menu;
+import util.DoLogin;
 
 import java.io.IOException;
 import java.time.Duration;
 
 import static utlity.ConfigReader.*;
 
-public class AddClientTest {
-    WebDriver driver;
-    @BeforeClass
-    public void doLogin() throws IOException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+public class AddClientTest extends DoLogin {
 
-        driver.get(getUrl());
-
-        Login login = new Login(driver);
-
-        login.setTxtUser(getUsername());
-        login.setTxtPassword(getPassword());
-        login.clickBtnLogin();
-    }
 
     @Test
     public void adClientTest()
@@ -42,18 +29,23 @@ public class AddClientTest {
 
         AddClient addClient = new AddClient(driver);
 
-        addClient.setClientName("Harshal");
+
+        addClient.setClientName("Harshal1");
         addClient.setClientSurname("Shinde");
+        addClient.setLanguage("Turkish");
         addClient.setClientAdd1("xyz");
         addClient.setClientAdd2("Swargate");
         addClient.setClientCity("Pune");
         addClient.setClientState("Maharastra");
         addClient.setClientZip("323232");
+        addClient.setCountry("Jordan");
         addClient.setClientPhone("323232");
         addClient.setClientFax("323232");
         addClient.setClientMobile("323232");
         addClient.setClientEmail("harshal@gmail.com");
         addClient.setClientWeb("www.harshal.com");
+        addClient.setGender("Female");
+        addClient.setBirthdate("04/28/2020");
         addClient.setClientVat("545454");
         addClient.setClientTax("54545");
         addClient.clickBtnSave();
